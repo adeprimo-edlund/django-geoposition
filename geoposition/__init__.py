@@ -3,7 +3,7 @@ from decimal import Decimal
 
 default_app_config = 'geoposition.apps.GeoPositionConfig'
 
-VERSION = (0, 3, 1)
+VERSION = (0, 4, 0)
 __version__ = '.'.join(map(str, VERSION))
 
 
@@ -27,7 +27,9 @@ class Geoposition(object):
         return len(str(self))
 
     def __eq__(self, other):
-        return isinstance(other, Geoposition) and self.latitude == other.latitude and self.longitude == other.longitude
+        return isinstance(other, Geoposition) \
+            and self.latitude == other.latitude \
+            and self.longitude == other.longitude
 
     def __ne__(self, other):
-        return not isinstance(other, Geoposition) or self.latitude != other.latitude or self.longitude != other.longitude
+        return not self.__eq__(other)

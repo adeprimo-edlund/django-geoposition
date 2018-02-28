@@ -10,6 +10,7 @@ from .forms import GeopositionField as GeopositionFormField
 
 
 class GeopositionField(models.Field):
+    
     description = _("A geoposition (latitude and longitude)")
 
     def __init__(self, *args, **kwargs):
